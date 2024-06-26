@@ -11,6 +11,7 @@
             {% if vdo.video_url %}
             <div class="embed-responsive embed-responsive-16by9">
               {% video vdo.video_url '400x290' %}
+            </div>
               {% else %}
             <h1>No Video</h1>
             {% endif %}
@@ -26,7 +27,6 @@
               </div>
             </div>
           </div>
-        </div>
         </div>
         {% endfor %}
       

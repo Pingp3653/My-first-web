@@ -10,3 +10,8 @@ def home(request):
     return render(request, "myapp/home.html",context)
 
 
+def contact(request):
+    return render(request, "myapp/contact.html")
+
+def about(request):
+    return render(request, "myapp/about.html")
