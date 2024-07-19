@@ -1,0 +1,61 @@
+{% extends 'myapp/index.html' %}
+
+{% block title %} ยินดีต้อนรับสู่หน้าสมัครสมาชิก {% endblock title %}
+
+{% block content %}
+
+{% if success%}
+<br><br>
+<div class="alert alert-dark" role="alert">
+    คุณได้สมัครสมาชิกเรียบร้อยแล้ว
+</div>
+
+{% else  %}
+
+        {% if usertaken %}
+        <br><br>
+        <div class="alert alert-warning" role="alert">
+            อีเมลนี้ถูกใช้งานแล้ว กรุณกรอกอีเมลใหม่
+          </div>
+        {% endif %}
+
+<br><br>
+    
+
+    <div class="container">
+        <h2>สมัครสมาชิกในหน้านี้ได้เลย</h2><br>
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="name">ชื่อ-สกุล</label>
+                <input type="text" class="form-control" id="name" name="name">
+            </div><br>
+
+            <div class="form-group">
+                <label for="email">email</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div><br>
+
+            <div class="form-group">
+                <label for="password">password</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div><br>
+            
+            <button type="submit" class="btn btn-primary">Submit</button><br><br>
+
+
+    </form>
+ </div>
+
+{ {% endif %}}
+
+  
+    
+
+
+
+
+
+{% endblock content %}
+  
