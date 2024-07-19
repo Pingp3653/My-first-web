@@ -1,4 +1,4 @@
-{% extends 'myapp/index.html' %}
+{% extends 'myapp/index1.html' %}
 
 {% block title %} เข้าสู่ระบบ {% endblock title %}
 
@@ -10,24 +10,26 @@
     อีเมลนี้ไม่มีในระบบ กรุณาสมัครสมาชิก
     </div>
 
-    <center><a class="btn btn-primary" href="{% url 'register'%}" role="button">สมัครสมาชิกใหม่</a><center>
+    <center><a href="{% url 'register'%}" role="button">สมัครสมาชิกใหม่</a><center>
         
 {% endif %}
+
 
 {% if wrongpassword %}
 <br><br>
 <div class="alert alert-warning" role="alert">
-    อีเมลนี้ไม่มีในระบบ กรุณาสมัครสมาชิก
-    </div>
+                รหัสผ่านผิด กรุณากรอกใหม่อีกครั้ง หรือ รีเซ็ตหรัสผ่านใหม่
+  </div>
 
-    <center><a class="btn btn-primary" href="{% url 'register'%}" role="button">สมัครสมาชิกใหม่</a><center>
+  <center><a href="#" role="button">รีเซ็ตหรัสผ่าน</a><center>
         
 {% endif %}
 
     <br><br>
-    <h2>เข้าสู่ระบบเว็บไซต์</h2><br>
+    
     
     <div class="container">
+        <h2>เข้าสู่ระบบเว็บไซต์</h2><br>
         <form method="POST">
             {% csrf_token %}
 
@@ -45,10 +47,31 @@
 
 
         </form>
+        {% comment %} <main class="form-signin">
+            <form method="POST">
+                {% csrf_token %}
+             
+              <h1 class="h3 mb-3 fw-normal">เข้าสู่ระบบเว็บไซต์</h1>
+          
+              <div class="form-floating">
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                <label for="email">Email address</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="password" placeholder="Password">
+                <label for="password">Password</label>
+              </div>
+          
+              <div class="checkbox mb-3">
+                <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+                </label>
+              </div>
+              <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+              <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+            </form>
+          </main> {% endcomment %}
     </div>
-
-
-
 
 {% endblock content %}
   
